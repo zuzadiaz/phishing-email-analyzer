@@ -72,4 +72,5 @@ python3 analyzer.py
 ## Author
 
 Zuzanna Diaz
+
 Cybersecurity / Python / Linux / Git
