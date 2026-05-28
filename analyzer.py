@@ -1,7 +1,11 @@
 # Phishing Email Analyzer
 
+import re
+
 with open("suspicious_email.txt", "r") as file: 
 	email_text = file.read()
+
+urls = re.findall(r"https?://\S+", email_text)
 
 suspicious_words = [
     "urgent",
@@ -28,6 +32,17 @@ print("\nRed flags found:")
 
 for finding in findings:
     print(f"- {finding}")
+
+print("\nURLs found:")
+	
+if urls:
+	for url in urls:
+		print(f"- {url}")
+else:
+	print("No URLs found.")
+
+if urls:
+	suspicious_score += len(urls)
 
 if suspicious_score >= 3:
     print("\nRisk Level: HIGH")
